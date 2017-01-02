@@ -1,0 +1,22 @@
+body{
+	width: 100%;
+	margin: 0px;
+}
+.grid{
+		border: 1px solid #ddd;
+		display: inline-block;
+		padding: 1px;
+		left: 50%;
+		transform: translateX(50%);
+	}
+.row{
+	margin: 0;
+}
+.cell {
+	border: 1px solid #ddd;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: top;
+	background-size: cover;
+}

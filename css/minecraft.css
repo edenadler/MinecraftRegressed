@@ -9,12 +9,11 @@ body{
 	display: inline-block;
 	position: absolute;
 	top:0;
-	right: 0;
+	right: 10em;
 }
 .grid{
 	border: 1px solid #ddd;
 	display: inline-block;
-	padding: 1px;
 	left: 50%;
 	transform: translateX(25%);
 }
@@ -23,19 +22,19 @@ body{
 }
 .cell {
 	border: 1px solid #ddd;
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	display: inline-block;
 	vertical-align: top;
 	background-size: cover;
 }
 .tool{
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 	border: 1px solid grey;
 	display: block;
 	position: relative;
-	transform: translate(50%,50%);
+	transform: translate(40%,50%);
 	margin: 10px;
 	padding: 5px;
 }
@@ -55,7 +54,5 @@ body{
 	background-image: url("../images/pickaxe.png");
 }
 #showMaterial{
-	width: 20px;
-	height: 20px;
-	transform: translate(111%,80%);
+
 }

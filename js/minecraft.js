@@ -1,44 +1,36 @@
 var game = {};
 
+var getCellAt = function(x,y){ 
+		return $('.'+x+'-'+y);
+	}
+
 game.init=(function(){
 
-	for (var i = 0; i <20; i++){
+	for (var i = 0; i <20; i++){//i = y coord
 		$(".grid").append('<div class="row"></div>');
-		$(".row").eq(i).attr("data-x",i);
 
 		for (var j = 0; j<20; j++){
 			$(".row").eq(i).append('<div class="cell"></div>');
-			$(".row:eq("+i+") .cell").eq(j).attr("data-y",j);
-			$(".grid .row:eq("+i+") .cell:eq("+j+")").click(getCellAt);
+			$(".row:eq("+i+") .cell").eq(j).addClass(j+'-'+i);//j = x coord
 			}
 	}
-	var getCellAt = function(x,y){
-		return $(".row:eq("+x+") .cell:eq("+y+")");
-	}
-	//sky
-	for (var i = 7; i<20; i++){
+
+	//give every cell background color of blue:
+	for (var i = 0; i<20; i++){
 		for (var j = 0; j<20; j++){
-			$(".grid").getCellAt(j,i).css('background-color', "#79a9f7");
+			getCellAt(j,i).css("background-color", "#79a9f7");
 		}
 	}
 
 });
 
-// game.getCellAt = function(x,y){
-// 	return $(".row:eq("+x+") .cell:eq("+y+")");
-// }
-// //sky
-// for (var i = 7; i<20; i++){
-// 	for (var j = 0; j<20; j++){
-// 		$(".grid").game.getCellAt(j,i).css('background-color', "#79a9f7");
-// 	}
-// }
 
 game.clickOnTools = function(){
 
 };
 
 game.clickOnBoxes = function(){
+
 
 };
 

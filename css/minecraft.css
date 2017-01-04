@@ -2,13 +2,22 @@ body{
 	width: 100%;
 	margin: 0px;
 }
+.menu{
+	width: 150px;
+	background-color: black;
+	height: 430px;
+	display: inline-block;
+	position: absolute;
+	top:0;
+	right: 0;
+}
 .grid{
-		border: 1px solid #ddd;
-		display: inline-block;
-		padding: 1px;
-		left: 50%;
-		transform: translateX(50%);
-	}
+	border: 1px solid #ddd;
+	display: inline-block;
+	padding: 1px;
+	left: 50%;
+	transform: translateX(25%);
+}
 .row{
 	margin: 0;
 }
@@ -19,4 +28,34 @@ body{
 	display: inline-block;
 	vertical-align: top;
 	background-size: cover;
+}
+.tool{
+	width: 40px;
+	height: 40px;
+	border: 1px solid grey;
+	display: block;
+	position: relative;
+	transform: translate(50%,50%);
+	margin: 10px;
+	padding: 5px;
+}
+#shovel{
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url("../images/shovel.png");
+}
+#axe{
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url("../images/axe.png");
+}
+#pickaxe{
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url("../images/pickaxe.png");
+}
+#showMaterial{
+	width: 20px;
+	height: 20px;
+	transform: translate(111%,80%);
 }

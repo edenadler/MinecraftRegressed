@@ -2,6 +2,8 @@
 
 var GameManager = function() {
 	this.cells = this.initGame();
+	this.selectedTool = '';
+	// this.clickedCell = '';
 };
 
 GameManager.prototype.initGame = function() {
@@ -11,21 +13,38 @@ GameManager.prototype.initGame = function() {
 };
 
 GameManager.prototype._initGrid = function() {
+	var self = this; //points to GameManager
 	var cells = {};
     for (var i = 0; i <20; i++){//i = y coord
-        $(".grid").append('<div class="row"></div>');
+        $(".grid").append( $('<div class="row"></div>'));
 
         for (var j = 0; j<20; j++){
-            $(".row").eq(i).append('<div class="cell"></div>');
-            //make an instance of Cell called Cells[key] where key is the xy of the cell
+            var currentCell = $(".row").eq(i).append('<div class="cell"></div>');
+            //make an instance of Cell called cells[key] where key is the xy of the cell
             cells[j+''+i] = new Cell($(".row:eq("+i+") .cell").eq(j).attr("id", j+"-"+i), this._clickedCell.bind(this));//j = x coord. Makes id: #j-i
+            var cellsInstance = cells[j+''+i];
+
+			currentCell.click(function(){
+				var currentDataType = currentCell.attr('data-type');
+
+				if(cellsInstance.isClickable(self.selectedTool)) {
+					currentCell.removeAttr('data-type');
+					$('#showMaterial').addClass(currentDataType);
+					console.log("inside changing img");
+				}
+			});
         }
     }
-    return cells;
+
+    $('.tool').click(function() {
+    	self.selectedTool = $(this).attr('id');
+    	console.log(self.selectedTool);
+	});
+
+        return cells;
 };
 
-GameManager.prototype._clickedCell = function(cell) {
-
+GameManager.prototype._clickedCell = function(cells) {
 };
 
 GameManager.prototype._setUpGame = function(cells) {
@@ -58,8 +77,8 @@ GameManager.prototype._makeTrunk = function(cells) {
     }
 };
 GameManager.prototype._makeLeaf = function(cells) {
-    var leafArr = ['313', '413', '513', '412', '815', '816', '817', '915', '916', '917', '1015', '1016', '1017'];
-    for (let i = 0; i < leafArr.length; i++) {
+    var leafArr = ['313', '413', '513', '412', '1510', '1610', '1710', '159', '169', '179', '158', '168', '178'];
+	for (let i = 0; i < leafArr.length; i++) {
         let index = leafArr[i];
         cells[index].setBackgroundImg('url(./images/leaf.jpg)').setClass('leaf');
     }
@@ -69,11 +88,10 @@ GameManager.prototype._makeDirt = function(cells) {
     for (var m = 14; m < 20; m++) {
     	for (var n = 0; n < 20; n++) {
             let index = '' + n + m + '';
-            console.log(index);
             if (m === 14)
-    			cells[index].setBackgroundImg('url(./images/topDirt.png)');
+    			cells[index].setBackgroundImg('url(./images/topDirt.png)').setClass('dirt');
 			else
-				cells[index].setBackgroundImg('url(./images/dirt.jpg)');
+				cells[index].setBackgroundImg('url(./images/dirt.jpg)').setClass('dirt');
 		}
 	}
 };

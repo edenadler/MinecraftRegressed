@@ -26,12 +26,12 @@ GameManager.prototype._initGrid = function() {
 
 			$("#"+j+"-"+i+"").click(function(e){
 				var currentDataType = $(this).attr('data-type');
-                console.log("this is the current data type:" + currentDataType);
+                console.log("this is the current data type: " + currentDataType);
 				if(cellsInstance.isClickable(self.selectedTool)) {
 					$(this).removeAttr('data-type');
 					$('#showMaterial').addClass(currentDataType);
-                    cellsInstance.removeClass(currentDataType);
-					console.log("this is the updated class" + currentDataType);
+                    $(this).removeClass(currentDataType);
+					console.log("this is the updated class: " + currentDataType);
 				}
 			});
         }
@@ -88,7 +88,7 @@ GameManager.prototype._makeDirt = function(cells) {
             let index = '' + n + m + '';
             if (m === 14)
     			cells[index].setClass('topDirt');
-			else
+			else if (m > 14 && m <20)
 				cells[index].setClass('dirt');
 		}
 	}

@@ -33,7 +33,7 @@ class Cell {
         return false;
     }
     setClass(imgClass) {
-        this.imgClass = imgClass;
+        this.imgClass = this.element.attr('data-type');
         this.element.addClass(imgClass);
         this.element.attr('data-type', imgClass);
     }
@@ -44,10 +44,10 @@ class Cell {
         this.element.css('background', backgroundImg).css('background-size', 'cover');
         return this;
     }
-    removeClass(imgClass) {
-        this.imgClass = imgClass;
-        this.element.removeClass(imgClass);
-    }
+    // removeClass(imgClass) {
+    //     this.imgClass = imgClass;
+    //     this.element.removeClass(imgClass);
+    // }
     setDataAttr(imgClass){
         this.imgClass = imgClass;
         this.element.attr('data-type', imgClass);

@@ -48,4 +48,8 @@ class Cell {
         this.imgClass = imgClass;
         this.element.removeClass(imgClass);
     }
+    setDataAttr(imgClass){
+        this.imgClass = imgClass;
+        this.element.attr('data-type', imgClass);
+    }
 }

@@ -79,16 +79,5 @@ body{
 .topDirt{
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-image: url("../images/topDirt.jpg");
-}.leaf {
-	background-image: url('../images/leaf.jpg');
-}
-.dirt {
-	background-image: url('../images/dirt.jpg');
-}
-.stone {
-	background-image: url('../images/stone.jpg');
-}
-.trunk {
-	background-image: url('../images/tree.jpg');
+	background-image: url("../images/topDirt.png");
 }

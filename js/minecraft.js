@@ -21,7 +21,7 @@ GameManager.prototype._initGrid = function() {
         for (var j = 0; j<20; j++){
             var currentCell = $(".row").eq(i).append('<div class="cell"></div>');
             //make an instance of Cell called cells[key] where key is the xy of the cell
-            cells[j+''+i] = new Cell($(".row:eq("+i+") .cell").eq(j).attr("id", j+"-"+i), this._clickedCell.bind(this));//j = x coord. Makes id: #j-i
+            cells[j+''+i] = new Cell($(".row:eq("+i+") .cell").eq(j).attr("id", j+"-"+i));//j = x coord. Makes id: #j-i
             var cellsInstance = cells[j+''+i];
 
 			currentCell.click(function(){
@@ -30,7 +30,7 @@ GameManager.prototype._initGrid = function() {
 				if(cellsInstance.isClickable(self.selectedTool)) {
 					currentCell.removeAttr('data-type');
 					$('#showMaterial').addClass(currentDataType);
-					console.log("inside changing img");
+					console.log(currentDataType);
 				}
 			});
         }
@@ -38,13 +38,9 @@ GameManager.prototype._initGrid = function() {
 
     $('.tool').click(function() {
     	self.selectedTool = $(this).attr('id');
-    	console.log(self.selectedTool);
 	});
 
         return cells;
-};
-
-GameManager.prototype._clickedCell = function(cells) {
 };
 
 GameManager.prototype._setUpGame = function(cells) {

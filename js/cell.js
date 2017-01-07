@@ -1,16 +1,15 @@
 class Cell {
-    constructor(element, clickCb) {
+    constructor(element) {
         this.element = element;
-        this.element.on('click', function(){
-            clickCb(this); //what is click call back function?
-        }.bind(this)); //'this' in this context: refers to the specific cell (with all its functions) that triggered the click event
+        // this.element.on('click', function(){
+        //     clickCb(this); //what is click call back function?
+        //}.bind(this)); //'this' in this context: refers to the specific cell (with all its functions) that triggered the click event
         this.setBackgroundColor('#79a9f7');
     }
     isClickable(toolId) {
         console.log(this);
 
         if (this.imgClass === 'leaf' && toolId === 'axe') {
-            console.log(this.imgClass);
             console.log('leaf');
             return true;
         }

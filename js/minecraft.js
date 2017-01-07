@@ -26,7 +26,7 @@ GameManager.prototype._initGrid = function() {
 
 			currentCell.click(function(){
 				var currentDataType = currentCell.attr('data-type');
-
+                console.log(currentDataType);
 				if(cellsInstance.isClickable(self.selectedTool)) {
 					currentCell.removeAttr('data-type');
 					$('#showMaterial').addClass(currentDataType);
